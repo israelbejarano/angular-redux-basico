@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Store, Action } from '@ngrx/store';
+import { IncrementarAction, DecrementarAction } from './contador/contador.actions';
 
 interface AppState {
   contador: number;
@@ -14,7 +15,6 @@ export class AppComponent {
   title = 'redux-app';
   contador: number;
   constructor(private store: Store<AppState>) {
-    // this.contador = 10;
     this.store.subscribe(state => {
       console.log(state);
       this.contador = state.contador;
@@ -22,18 +22,12 @@ export class AppComponent {
   }
 
   incrementar() {
-    // this.contador ++;
-    const action: Action = {
-      type: 'INCREMENTAR'
-    };
-    this.store.dispatch(action);
+    const accion = new IncrementarAction();
+    this.store.dispatch(accion);
   }
 
   decrementar() {
-    // this.contador --;
-    const action: Action = {
-      type: 'DECREMENTAR'
-    };
-    this.store.dispatch(action);
+    const accion = new DecrementarAction();
+    this.store.dispatch(accion);
   }
 }
