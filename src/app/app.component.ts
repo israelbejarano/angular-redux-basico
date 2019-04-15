@@ -15,9 +15,11 @@ export class AppComponent {
   title = 'redux-app';
   contador: number;
   constructor(private store: Store<AppState>) {
-    this.store.subscribe(state => {
+    // hago select de contador para asi solo escuchar una propiedad especifica del state
+    this.store.select('contador').subscribe(state => {
       console.log(state);
-      this.contador = state.contador;
+      // this.contador = state.contador; // cuando no haciamos select en el subscribe
+      this.contador = state;
     });
   }
 
