@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Store, Action } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { IncrementarAction, DecrementarAction } from './contador/contador.actions';
 import { AppState } from './app.reducers';
 
